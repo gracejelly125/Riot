@@ -22,7 +22,7 @@ const Rotation = () => {
       }
     };
 
-    fetchRotation(); 
+    fetchRotation();
   }, []);
 
   // console.log("rotation", rotation);
@@ -30,7 +30,7 @@ const Rotation = () => {
   // rotation 이 업데이트 된 이후에 fetchFreeChampions 실행되도록 함
   useEffect(() => {
     if (rotation.length > 0) {
-      const fetchFreeChampions = async (): Promise<Champion[] | void > => {
+      const fetchFreeChampions = async (): Promise<Champion[] | void> => {
         try {
           const response = await fetchChampionList(version);
 
@@ -50,7 +50,7 @@ const Rotation = () => {
   return (
     <div>
       <h1 className="text-3xl text-red-500 font-bold mt-8 mb-4 p-2">
-        챔피언 목록
+        챔피언 로테이션 (이번주 무료로 플레이 할 수 있어요!)
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
         {freeChampions.map((champion) => (
