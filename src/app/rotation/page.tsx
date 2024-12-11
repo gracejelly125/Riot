@@ -2,7 +2,7 @@
 
 import { Champion } from "@/types/champion.type";
 import { getChampionRotation } from "@/utils/riotApi";
-import { fetchChampions } from "@/utils/serverApi";
+import { fetchChampionList } from "@/utils/serverApi";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -30,9 +30,9 @@ const Rotation = () => {
   // rotation 이 업데이트 된 이후에 fetchFreeChampions 실행되도록 함
   useEffect(() => {
     if (rotation.length > 0) {
-      const fetchFreeChampions = async () => {
+      const fetchFreeChampions = async (): Promise<Champion[] | void > => {
         try {
-          const response = await fetchChampions(version);
+          const response = await fetchChampionList(version);
 
           const filteredFreeChampions = Object.values(response).filter((res) =>
             rotation.includes(Number(res.key))

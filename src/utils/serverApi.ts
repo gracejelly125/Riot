@@ -1,8 +1,11 @@
-'use server'
+import { Champion } from "@/types/champion.type";
+import { ChampionDetail } from "@/types/detail.type";
+import { Item } from "@/types/item.type";
 
-export const fetchItems = async (version: string) => {
+export const fetchItemList = async (version: string): Promise<Item[]> => {
   const response = await fetch(
-    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
+    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`,
+    { cache: "force-cache" }
   );
   if (!response.ok) {
     throw new Error("Failed to fetch items");
@@ -11,7 +14,9 @@ export const fetchItems = async (version: string) => {
   return data.data;
 };
 
-export const fetchChampions = async (version: string) => {
+export const fetchChampionList = async (
+  version: string
+): Promise<Champion[]> => {
   const response = await fetch(
     `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
   );
@@ -22,7 +27,10 @@ export const fetchChampions = async (version: string) => {
   return data.data;
 };
 
-export const fetchChampionDetail = async (version: string, id: string) => {
+export const fetchChampionDetail = async (
+  version: string,
+  id: string
+): Promise<ChampionDetail> => {
   const response = await fetch(
     `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`
   );

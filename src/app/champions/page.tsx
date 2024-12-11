@@ -1,12 +1,14 @@
 import { Champion } from "@/types/champion.type";
-import { fetchChampions } from "@/utils/serverApi";
+import { fetchChampionList } from "@/utils/serverApi";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+export const revalidate = 86400;
+
 const Champions = async () => {
   const version = "14.23.1";
-  const data = await fetchChampions(version);
+  const data = await fetchChampionList(version);
   const champions: Champion[] = data;
 
   return (
@@ -17,9 +19,7 @@ const Champions = async () => {
       <div className="flex flex-wrap gap-5 justify-center">
         {Object.values(champions).map((champion) => (
           <Link key={champion.id} href={`/champions/${champion.id}`}>
-            <li
-              className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl"
-            >
+            <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl">
               <Image
                 src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
                 alt={champion.name}
