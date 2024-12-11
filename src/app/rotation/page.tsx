@@ -1,51 +1,32 @@
+// CSR 방식
 "use client";
 
 import { Champion } from "@/types/champion.type";
 import { getChampionRotation } from "@/utils/riotApi";
 import { fetchChampionList } from "@/utils/serverApi";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const Rotation = () => {
-  const [rotation, setRotation] = useState<number[]>([]);
-  const [freeChampions, setFreeChampions] = useState<Champion[]>([]);
   const version = "14.23.1";
 
-  useEffect(() => {
-    const fetchRotation = async () => {
-      try {
-        const selectedChampions = await getChampionRotation();
-        setRotation(selectedChampions);
-      } catch (error) {
-        console.error("Error fetching selectedChampions:", error);
-      }
-    };
+  // 로테이션 정보 관리
+  const { data: rotation } = useQuery<number[]>({
+    queryKey: ["rotation"],
+    queryFn: getChampionRotation,
+  });
 
-    fetchRotation();
-  }, []);
+  // 무료 챔피언 목록 관리
+  const { data: freeChampions } = useQuery<Champion[]>({
+    queryKey: ["freeChampions", rotation],
+    queryFn: async () => {
+      if(!rotation || rotation.length === 0) return [];
+      const response = await fetchChampionList(version);
+      return Object.values(response).filter((res) => rotation.includes(Number(res.key)))},
+    enabled: !!rotation,
+  });
 
-  // console.log("rotation", rotation);
-
-  // rotation 이 업데이트 된 이후에 fetchFreeChampions 실행되도록 함
-  useEffect(() => {
-    if (rotation.length > 0) {
-      const fetchFreeChampions = async (): Promise<Champion[] | void> => {
-        try {
-          const response = await fetchChampionList(version);
-
-          const filteredFreeChampions = Object.values(response).filter((res) =>
-            rotation.includes(Number(res.key))
-          );
-          setFreeChampions(filteredFreeChampions);
-        } catch (error) {
-          console.error("Error fetching freeChampions:", error);
-        }
-      };
-
-      fetchFreeChampions();
-    }
-  }, [rotation]);
 
   return (
     <div>
@@ -53,7 +34,7 @@ const Rotation = () => {
         챔피언 로테이션 (이번주 무료로 플레이 할 수 있어요!)
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
-        {freeChampions.map((champion) => (
+        {freeChampions?.map((champion) => (
           <Link key={champion.id} href={`/champions/${champion.id}`}>
             <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl">
               <Image

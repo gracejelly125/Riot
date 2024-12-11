@@ -1,6 +1,7 @@
 import { Rotation } from "@/types/rotation.type";
 import { NextResponse } from "next/server";
 
+// Route handler => 서버 전용 로직 구현 가능해짐
 export async function GET() {
   const response = await fetch(
     "https://kr.api.riotgames.com/lol/platform/v3/champion-rotations",

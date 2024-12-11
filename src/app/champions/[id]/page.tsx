@@ -9,6 +9,7 @@ type Props = {
   };
 };
 
+// 제목을 동적으로 설정 => SEO 강화
 export const generateMetadata = ({ params }: Props) => {
   return {
     title: `${params.id}`,
@@ -17,6 +18,7 @@ export const generateMetadata = ({ params }: Props) => {
 
 const Detail = async ({ params }: Props) => {
   const version = "14.23.1";
+  // params.id와 같은 id를 가진 챔피언의 상세정보 가져오기 
   const data: ChampionDetail = await fetchChampionDetail(version, params.id);
 
   return (

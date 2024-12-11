@@ -1,13 +1,17 @@
+// ISR 방식
+
 import { Champion } from "@/types/champion.type";
 import { fetchChampionList } from "@/utils/serverApi";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+// 24시간 마다 재검증하여 업데이트
 export const revalidate = 86400;
 
 const Champions = async () => {
   const version = "14.23.1";
+  // 전체 챔피언 목록 가져오기
   const data = await fetchChampionList(version);
   const champions: Champion[] = data;
 

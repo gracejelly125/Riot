@@ -2,6 +2,7 @@ import { Champion } from "@/types/champion.type";
 import { ChampionDetail } from "@/types/detail.type";
 import { Item } from "@/types/item.type";
 
+// 아이템 목록 가져오기
 export const fetchItemList = async (version: string): Promise<Item[]> => {
   const response = await fetch(
     `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`,
@@ -14,6 +15,7 @@ export const fetchItemList = async (version: string): Promise<Item[]> => {
   return data.data;
 };
 
+// 전체 챔피언 목록 가져오기
 export const fetchChampionList = async (
   version: string
 ): Promise<Champion[]> => {
@@ -27,6 +29,7 @@ export const fetchChampionList = async (
   return data.data;
 };
 
+// 챔피언 상세 정보 가져오기
 export const fetchChampionDetail = async (
   version: string,
   id: string

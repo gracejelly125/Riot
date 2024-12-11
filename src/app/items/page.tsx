@@ -1,3 +1,5 @@
+//SSG 방식
+
 import { Item } from "@/types/item.type";
 import { fetchItemList } from "@/utils/serverApi";
 import Image from "next/image";
@@ -5,6 +7,7 @@ import React from "react";
 
 const Items = async () => {
   const version = "14.23.1";
+  // 아이템 목록 가져오기
   const data = await fetchItemList(version);
   const items: Item[] = data;
 
