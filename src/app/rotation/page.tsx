@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Rotation = () => {
-  const version = "14.23.1";
+  const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
 
   // 로테이션 정보 관리
   const { data: rotation } = useQuery<number[]>({
@@ -21,12 +21,10 @@ const Rotation = () => {
   const { data: freeChampions } = useQuery<Champion[]>({
     queryKey: ["freeChampions", rotation],
     queryFn: async () => {
-      if(!rotation || rotation.length === 0) return [];
       const response = await fetchChampionList(version);
-      return Object.values(response).filter((res) => rotation.includes(Number(res.key)))},
+      return Object.values(response).filter((res) => rotation?.includes(Number(res.key)))},
     enabled: !!rotation,
   });
-
 
   return (
     <div>

@@ -10,7 +10,7 @@ import React from "react";
 export const revalidate = 86400;
 
 const Champions = async () => {
-  const version = "14.23.1";
+  const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
   // 전체 챔피언 목록 가져오기
   const data = await fetchChampionList(version);
   const champions: Champion[] = data;

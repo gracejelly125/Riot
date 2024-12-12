@@ -17,7 +17,7 @@ export const generateMetadata = ({ params }: Props) => {
 };
 
 const Detail = async ({ params }: Props) => {
-  const version = "14.23.1";
+  const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
   // params.id와 같은 id를 가진 챔피언의 상세정보 가져오기 
   const data: ChampionDetail = await fetchChampionDetail(version, params.id);
 

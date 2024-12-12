@@ -6,7 +6,7 @@ import Image from "next/image";
 import React from "react";
 
 const Items = async () => {
-  const version = "14.23.1";
+  const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
   // 아이템 목록 가져오기
   const data = await fetchItemList(version);
   const items: Item[] = data;
