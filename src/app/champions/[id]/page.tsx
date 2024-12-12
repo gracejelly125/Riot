@@ -1,7 +1,6 @@
+import ChampionsDetailItem from "@/components/ChampionsDetailItem";
 import { ChampionDetail } from "@/types/detail.type";
 import { fetchChampionDetail } from "@/utils/serverApi";
-import Image from "next/image";
-import React from "react";
 
 type Props = {
   params: {
@@ -18,32 +17,10 @@ export const generateMetadata = ({ params }: Props) => {
 
 const Detail = async ({ params }: Props) => {
   const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
-  // params.id와 같은 id를 가진 챔피언의 상세정보 가져오기 
+  // params.id와 같은 id를 가진 챔피언의 상세정보 가져오기
   const data: ChampionDetail = await fetchChampionDetail(version, params.id);
 
-  return (
-    <div className="flex flex-col justify-center max-w-[700px]">
-      <h1 className="text-4xl text-red-500 font-bold mt-20 mb-4">
-        {data.name}
-      </h1>
-      <h2 className="text-2xl text-gray-500 mb-4">{data.title}</h2>
-      <Image
-        className="mb-6 mx-auto"
-        src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${data.image.full}`}
-        alt={data.name}
-        width={200}
-        height={200}
-      />
-      <p className="text-red-500 mb-6">{data.blurb}</p>
-      <h3 className="text-xl text-red-500 font-bold mb-2">스탯</h3>
-      <ul className="text-red-500 list-disc list-inside">
-        <li>공격력: {data.info.attack}</li>
-        <li>방어력: {data.info.defense}</li>
-        <li>마법력: {data.info.magic}</li>
-        <li>난이도: {data.info.difficulty}</li>
-      </ul>
-    </div>
-  );
+  return <ChampionsDetailItem data={data} version={version} />;
 };
 
 export default Detail;

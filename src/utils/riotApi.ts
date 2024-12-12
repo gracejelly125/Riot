@@ -7,6 +7,6 @@ export const getChampionRotation = async (): Promise<number[]> => {
     throw new Error("Failed to fetch rotation");
   }
   const data: { data: Rotation } = await response.json();
-//   console.log("data.data.freeChampionIds", data.data.freeChampionIds);
+  //   console.log("data.data.freeChampionIds", data.data.freeChampionIds);
   return data.data.freeChampionIds;
 };

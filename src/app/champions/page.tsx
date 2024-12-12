@@ -1,10 +1,8 @@
 // ISR 방식
 
+import ChampionsItem from "@/components/ChampionsItem";
 import { Champion } from "@/types/champion.type";
 import { fetchChampionList } from "@/utils/serverApi";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
 
 // 24시간 마다 재검증하여 업데이트
 export const revalidate = 86400;
@@ -22,20 +20,11 @@ const Champions = async () => {
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
         {Object.values(champions).map((champion) => (
-          <Link key={champion.id} href={`/champions/${champion.id}`}>
-            <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl">
-              <Image
-                src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
-                alt={champion.name}
-                width={100}
-                height={100}
-              />
-              <p className="mt-2 text-lg text-red-500 font-semibold">
-                {champion.name}
-              </p>
-              <p className="text-sm text-gray-500">{champion.title}</p>
-            </li>
-          </Link>
+          <ChampionsItem
+            key={champion.id}
+            champion={champion}
+            version={version}
+          />
         ))}
       </div>
     </div>

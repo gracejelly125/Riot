@@ -1,9 +1,8 @@
 //SSG 방식
 
+import ItemsItem from "@/components/ItemsItem";
 import { Item } from "@/types/item.type";
 import { fetchItemList } from "@/utils/serverApi";
-import Image from "next/image";
-import React from "react";
 
 const Items = async () => {
   const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
@@ -18,21 +17,7 @@ const Items = async () => {
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
         {Object.values(items).map((item) => (
-          <li
-            key={item.name}
-            className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl"
-          >
-            <Image
-              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.image.full}`}
-              alt={item.name}
-              width={100}
-              height={100}
-            />
-            <p className="mt-2 text-lg text-red-500 font-semibold">
-              {item.name}
-            </p>
-            <p className="text-sm text-gray-500">{item.plaintext}</p>
-          </li>
+          <ItemsItem key={item.name} item={item} version={version} />
         ))}
       </div>
     </div>

@@ -1,12 +1,11 @@
 // CSR 방식
 "use client";
 
+import RotationItem from "@/components/RotationItem";
 import { Champion } from "@/types/champion.type";
 import { getChampionRotation } from "@/utils/riotApi";
 import { fetchChampionList } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
-import Link from "next/link";
 
 const Rotation = () => {
   const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
@@ -22,7 +21,10 @@ const Rotation = () => {
     queryKey: ["freeChampions", rotation],
     queryFn: async () => {
       const response = await fetchChampionList(version);
-      return Object.values(response).filter((res) => rotation?.includes(Number(res.key)))},
+      return Object.values(response).filter((res) =>
+        rotation?.includes(Number(res.key))
+      );
+    },
     enabled: !!rotation,
   });
 
@@ -33,20 +35,11 @@ const Rotation = () => {
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
         {freeChampions?.map((champion) => (
-          <Link key={champion.id} href={`/champions/${champion.id}`}>
-            <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl">
-              <Image
-                src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
-                alt={champion.name}
-                width={100}
-                height={100}
-              />
-              <p className="mt-2 text-lg text-red-500 font-semibold">
-                {champion.name}
-              </p>
-              <p className="text-sm text-gray-500">{champion.title}</p>
-            </li>
-          </Link>
+          <RotationItem
+            key={champion.id}
+            champion={champion}
+            version={version}
+          />
         ))}
       </div>
     </div>

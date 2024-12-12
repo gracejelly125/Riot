@@ -41,6 +41,5 @@ export type Item = {
   tags: string[];
   maps: {
     [mapNumber: number]: boolean;
+  };
 };
-}
-
