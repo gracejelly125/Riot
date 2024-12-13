@@ -8,7 +8,7 @@ type ItemsItemProps = {
 
 const ItemsItem = ({ item, version }: ItemsItemProps) => {
   return (
-    <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl">
+    <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-gray-200 border-2 rounded-xl">
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.image.full}`}
         alt={item.name}

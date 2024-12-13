@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="my-10 flex flex-col text-center items-center">
-      <h1 className="my-4 text-red-500 font-bold text-3xl">
+      <h1 className="my-6 text-red-500 font-bold text-3xl">
         리그 오브 레전드 정보 앱
       </h1>
       <h2 className="text-gray-500 mb-6">

@@ -1,7 +1,7 @@
 // CSR 방식
 "use client";
 
-import RotationItem from "@/components/ui/RotationItem";
+import RotationItem from "@/app/rotation/_components/RotationItem";
 import { Champion } from "@/types/champion.type";
 import { getChampionRotation } from "@/utils/riotApi";
 import { fetchChampionList } from "@/utils/serverApi";
@@ -29,11 +29,12 @@ const Rotation = () => {
     enabled: !!rotation,
   });
 
+  // 그냥 로딩 컴포넌트를 불러와서 그려줌, CSR방식이라 경로는 상관없음
   if (isPending) return <Loading />;
 
   return (
     <div>
-      <h1 className="text-3xl text-red-500 font-bold mt-8 mb-4 p-2">
+      <h1 className="text-3xl text-red-500 font-bold mt-14 mb-6 p-2">
         챔피언 로테이션 (이번주 무료로 플레이 할 수 있어요!)
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">

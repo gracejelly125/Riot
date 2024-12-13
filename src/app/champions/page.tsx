@@ -1,6 +1,6 @@
 // ISR 방식
 
-import ChampionsItem from "@/components/ui/ChampionsItem";
+import ChampionsItem from "@/app/champions/_components/ChampionsItem";
 import { Champion } from "@/types/champion.type";
 import { fetchChampionList } from "@/utils/serverApi";
 
@@ -15,7 +15,7 @@ const Champions = async () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-red-500 font-bold mt-8 mb-4 p-2">
+      <h1 className="text-3xl text-red-500 font-bold mt-14 mb-6 p-2">
         챔피언 목록
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">

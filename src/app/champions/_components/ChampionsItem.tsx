@@ -2,15 +2,15 @@ import { Champion } from "@/types/champion.type";
 import Image from "next/image";
 import Link from "next/link";
 
-type RotationItemProps = {
+type ChampionsItemProps = {
   champion: Champion;
   version: string;
 };
 
-const RotationItem = ({ champion, version }: RotationItemProps) => {
+const ChampionsItem = ({ champion, version }: ChampionsItemProps) => {
   return (
     <Link href={`/champions/${champion.id}`}>
-      <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-white border-2 rounded-xl">
+      <li className="list-none flex flex-col items-center p-6 rounded-lg shadow-md w-60 h-60 border-solid border-gray-200 border-2 rounded-xl">
         <Image
           src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
           alt={champion.name}
@@ -26,4 +26,4 @@ const RotationItem = ({ champion, version }: RotationItemProps) => {
   );
 };
 
-export default RotationItem;
+export default ChampionsItem;

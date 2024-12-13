@@ -1,16 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['wallpapers.com'],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ddragon.leagueoflegends.com", // 로드할 이미지의 도메인
+        hostname: "wallpapers.com",
+        pathname: "/**", // 모든 경로에서 이미지를 허용
+      },
+      {
+        protocol: "https",
+        hostname: "ddragon.leagueoflegends.com",
+        pathname: "/**",
       },
     ],
   },
 };
 
 export default nextConfig;
-
-// https://nextjs.org/docs/messages/next-image-unconfigured-host
