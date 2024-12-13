@@ -1,4 +1,6 @@
-import ChampionsDetailItem from "@/components/ChampionsDetailItem";
+// SSR 방식
+
+import ChampionsDetailItem from "@/components/ui/ChampionsDetailItem";
 import { ChampionDetail } from "@/types/detail.type";
 import { fetchChampionDetail } from "@/utils/serverApi";
 

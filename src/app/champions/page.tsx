@@ -1,6 +1,6 @@
 // ISR 방식
 
-import ChampionsItem from "@/components/ChampionsItem";
+import ChampionsItem from "@/components/ui/ChampionsItem";
 import { Champion } from "@/types/champion.type";
 import { fetchChampionList } from "@/utils/serverApi";
 

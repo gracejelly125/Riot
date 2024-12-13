@@ -35,7 +35,8 @@ export const fetchChampionDetail = async (
   id: string
 ): Promise<ChampionDetail> => {
   const response = await fetch(
-    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`
+    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`,
+    { cache: "no-store" }
   );
   if (!response.ok) {
     throw new Error("Failed to fetch details");

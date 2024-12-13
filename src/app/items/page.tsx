@@ -1,6 +1,6 @@
 //SSG 방식
 
-import ItemsItem from "@/components/ItemsItem";
+import ItemsItem from "@/components/ui/ItemsItem";
 import { Item } from "@/types/item.type";
 import { fetchItemList } from "@/utils/serverApi";
 

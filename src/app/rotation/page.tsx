@@ -1,17 +1,18 @@
 // CSR 방식
 "use client";
 
-import RotationItem from "@/components/RotationItem";
+import RotationItem from "@/components/ui/RotationItem";
 import { Champion } from "@/types/champion.type";
 import { getChampionRotation } from "@/utils/riotApi";
 import { fetchChampionList } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
+import Loading from "../loading";
 
 const Rotation = () => {
   const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
 
   // 로테이션 정보 관리
-  const { data: rotation } = useQuery<number[]>({
+  const { data: rotation, isPending } = useQuery<number[]>({
     queryKey: ["rotation"],
     queryFn: getChampionRotation,
   });
@@ -27,6 +28,8 @@ const Rotation = () => {
     },
     enabled: !!rotation,
   });
+
+  if (isPending) return <Loading />;
 
   return (
     <div>

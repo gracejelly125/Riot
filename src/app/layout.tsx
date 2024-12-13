@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Link from "next/link";
 import Providers from "@/components/providers/RQProvider";
+import Header from "@/components/ui/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,14 +32,7 @@ export default function RootLayout({
       >
         <div className="w-full min-h-screen flex justify-center bg-black">
           <div className="w-full">
-            <nav className="w-full bg-gray-800  fixed top-0 z-100">
-              <div className="max-w-[1600px] mx-auto flex justify-around py-4 px-6 text-white font-bold">
-                <Link href="/">홈</Link>
-                <Link href="/champions">챔피언 목록</Link>
-                <Link href="/items">아이템 목록</Link>
-                <Link href="/rotation">챔피언 로테이션</Link>
-              </div>
-            </nav>
+            <Header />
             <main className="flex justify-center mt-16 max-w-[1600px] mx-auto px-6 text-white">
               <Providers>{children}</Providers>
             </main>
