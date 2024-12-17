@@ -1,3 +1,5 @@
+"use server"
+
 import { Rotation } from "@/types/rotation.type";
 
 // Route handler 활용, rotation 데이터 정보에서 필요한 ID 값만 가져옴

@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "wallpapers.com",
-        pathname: "/**", // 모든 경로에서 이미지를 허용
+        pathname: "/**",
       },
       {
         protocol: "https",
