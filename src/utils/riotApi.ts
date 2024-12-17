@@ -4,7 +4,7 @@ import { Rotation } from "@/types/rotation.type";
 
 // Route handler 활용, rotation 데이터 정보에서 필요한 ID 값만 가져옴
 export const getChampionRotation = async (): Promise<number[]> => {
-  const response = await fetch("http://localhost:3000/api/rotation");
+  const response = await fetch("/api/rotation");
   if (!response.ok) {
     throw new Error("Failed to fetch rotation");
   }
