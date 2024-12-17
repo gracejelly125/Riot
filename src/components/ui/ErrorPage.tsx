@@ -24,7 +24,7 @@ const ErrorPage = ({reset}: ErrorProps) => {
         에러가 발생했습니다. 다시 시도해주세요.
       </h2>
       <button
-        className="px-4 py-1 border border-solid border-white rounded-[8px]"
+        className="px-4 py-1 border border-solid border-foreground text-foreground rounded-[8px]"
         onClick={handleClick}
       >
         Try again

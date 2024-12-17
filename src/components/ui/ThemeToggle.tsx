@@ -31,7 +31,7 @@ const ThemeToggle = () => {
     <button
       suppressHydrationWarning
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="px-4 py-1 border border-solid border-white rounded-[8px]"
+      className="px-4 py-1 border border-solid border-foreground rounded-[8px]"
     >
       {theme === "dark" ? "Light Mode" : "Dark Mode"}
     </button>
