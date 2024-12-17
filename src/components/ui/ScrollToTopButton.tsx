@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { GoMoveToTop } from "react-icons/go";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +35,7 @@ const ScrollToTopButton = () => {
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 p-3 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 focus:outline-none"
         >
-          🔺
+          <GoMoveToTop />
         </button>
       )}
     </>
