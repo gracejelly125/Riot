@@ -10,34 +10,34 @@ export default function Home() {
       <h2 className="text-gray-500 mb-6">
         Riot Games API를 활용하여 챔피언과 아이템 정보를 제공합니다.
       </h2>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-wrap gap-8">
         <Link href={"/champions"}>
           <Image
             className="mb-2"
-            src={`https://wallpapers.com/images/featured/league-of-legends-3ggpjbfly8o9uo8a.jpg`}
+            src={`https://wallpapers.com/images/high/3d-league-of-legends-8yx3ab1xb69nn227.webp`}
             alt="League of Legends"
-            width={500}
-            height={0}
+            width={400}
+            height={300}
           />
           <h2 className="text-xl text-yellow-500">챔피언 목록 보기</h2>
         </Link>
         <Link href={"/rotation"}>
           <Image
             className="mb-2"
-            src={`https://wallpapers.com/images/high/3d-league-of-legends-8yx3ab1xb69nn227.webp`}
+            src={`https://wallpapers.com/images/hd/teemo-field-sunset-laptop-kyaooej800vivvrz.webp`}
             alt="League of Legends"
-            width={500}
-            height={0}
+            width={400}
+            height={300}
           />
           <h2 className="text-xl text-yellow-500">금주 로테이션 확인</h2>
         </Link>
         <Link href={"/items"}>
           <Image
             className="mb-2"
-            src={`https://wallpapers.com/images/high/arcane-league-of-legends-dark-alley-z81hrap8o7mezc0g.webp`}
+            src={`https://wallpapers.com/images/high/hexplorer-teemo-lol-wild-rift-xtcks2maqyql1dte.webp`}
             alt="League of Legends"
-            width={500}
-            height={0}
+            width={400}
+            height={300}
           />
           <h2 className="text-xl text-yellow-500">아이템 목록 보기</h2>
         </Link>

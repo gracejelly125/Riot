@@ -8,6 +8,7 @@ import { fetchChampionList } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../loading";
 import ErrorPage from "@/components/ui/ErrorPage";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 const Rotation = () => {
   const version = process.env.NEXT_PUBLIC_DDRAGON_VERSION!;
@@ -40,7 +41,7 @@ const Rotation = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-red-500 font-bold mt-14 mb-6 p-2">
+      <h1 className="text-center text-3xl text-red-500 font-bold mt-16 mb-8">
         챔피언 로테이션 (이번주 무료로 플레이 할 수 있어요!)
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
@@ -52,6 +53,7 @@ const Rotation = () => {
           />
         ))}
       </div>
+      <ScrollToTopButton />
     </div>
   );
 };

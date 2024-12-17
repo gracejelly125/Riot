@@ -1,6 +1,7 @@
 //SSG 방식
 
 import ItemsItem from "@/app/items/_components/ItemsItem";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import { Item } from "@/types/item.type";
 import { fetchItemList } from "@/utils/serverApi";
 
@@ -12,7 +13,7 @@ const Items = async () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-red-500 font-bold mt-14 mb-6 p-2">
+      <h1 className="text-center text-3xl text-red-500 font-bold mt-16 mb-8">
         아이템 목록
       </h1>
       <div className="flex flex-wrap gap-5 justify-center">
@@ -20,6 +21,7 @@ const Items = async () => {
           <ItemsItem key={item.name} item={item} version={version} />
         ))}
       </div>
+      <ScrollToTopButton />
     </div>
   );
 };
