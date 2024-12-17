@@ -8,7 +8,7 @@ export async function GET() {
     {
       headers: {
         "Content-Type": "application/json",
-        "X-Riot-Token": process.env.NEXT_PUBLIC_RIOT_API_KEY as string,
+        "X-Riot-Token": process.env.RIOT_API_KEY as string,
       },
     }
   );

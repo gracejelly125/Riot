@@ -20,7 +20,7 @@ const Rotation = () => {
     isPending,
   } = useQuery<number[]>({
     queryKey: ["rotation"],
-    queryFn: () => getChampionRotation(),
+    queryFn: getChampionRotation,
   });
 
   // 무료 챔피언 목록 관리
