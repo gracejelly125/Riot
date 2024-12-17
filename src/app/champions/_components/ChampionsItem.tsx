@@ -16,6 +16,7 @@ const ChampionsItem = ({ champion, version }: ChampionsItemProps) => {
           alt={champion.name}
           width={100}
           height={100}
+          loading="lazy"
         />
         <p className="mt-2 text-lg text-red-500 font-semibold">
           {champion.name}

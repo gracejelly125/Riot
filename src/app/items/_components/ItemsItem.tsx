@@ -14,6 +14,7 @@ const ItemsItem = ({ item, version }: ItemsItemProps) => {
         alt={item.name}
         width={100}
         height={100}
+        loading="lazy"
       />
       <p className="mt-2 text-lg text-red-500 font-semibold">{item.name}</p>
       <p className="text-sm text-gray-500">{item.plaintext}</p>

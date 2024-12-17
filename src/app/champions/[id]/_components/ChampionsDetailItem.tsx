@@ -19,6 +19,7 @@ const ChampionsDetailItem = ({ data, version }: ChampionsDetailItemProps) => {
         alt={data.name}
         width={200}
         height={200}
+        loading="lazy"
       />
       <p className="text-red-500 mb-6">{data.blurb}</p>
       <h3 className="text-xl text-red-500 font-bold mb-2">스탯</h3>

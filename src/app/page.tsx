@@ -18,6 +18,7 @@ export default function Home() {
             alt="League of Legends"
             width={400}
             height={0}
+            loading="lazy"
           />
           <h2 className="text-xl text-yellow-500">챔피언 목록 보기</h2>
         </Link>
@@ -28,6 +29,7 @@ export default function Home() {
             alt="League of Legends"
             width={400}
             height={0}
+            loading="lazy"
           />
           <h2 className="text-xl text-yellow-500">금주 로테이션 확인</h2>
         </Link>
@@ -38,6 +40,7 @@ export default function Home() {
             alt="League of Legends"
             width={400}
             height={0}
+            loading="lazy"
           />
           <h2 className="text-xl text-yellow-500">아이템 목록 보기</h2>
         </Link>
