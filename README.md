@@ -59,3 +59,10 @@
 ----
 ## 결과물
 - vercel 배포 링크 : [https://riot-mu.vercel.app/]
+----
+## 트러블 슈팅
+1. https://velog.io/@gracejelly125/%EB%B3%B8%EC%BA%A0%ED%94%84-50%EC%9D%BC%EC%B0%A8
+2. https://velog.io/@gracejelly125/%EB%B3%B8%EC%BA%A0%ED%94%84-51%EC%9D%BC%EC%B0%A8
+3. https://velog.io/@gracejelly125/%EB%B3%B8%EC%BA%A0%ED%94%84-52%EC%9D%BC%EC%B0%A8
+4. https://velog.io/@gracejelly125/%EB%B3%B8%EC%BA%A0%ED%94%84-53%EC%9D%BC%EC%B0%A8
+5. https://velog.io/@gracejelly125/%EB%B3%B8%EC%BA%A0%ED%94%84-54%EC%9D%BC%EC%B0%A8
