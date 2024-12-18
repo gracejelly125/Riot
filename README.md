@@ -42,6 +42,7 @@
 - Scroll To Top 버튼 기능 구현
 ----
 ## 결과물
+- vercel 배포 링크 : [https://riot-mu.vercel.app/]
 - PC 환경
 
 ![PC](https://github.com/user-attachments/assets/11dab9c3-486b-4f65-a47f-4509758845b8)
@@ -56,9 +57,6 @@
 - TypeScript
 - Tailwind css
 - Tanstack/React-Query
-----
-## 결과물
-- vercel 배포 링크 : [https://riot-mu.vercel.app/]
 ----
 ## 트러블 슈팅
 1. https://velog.io/@gracejelly125/%EB%B3%B8%EC%BA%A0%ED%94%84-50%EC%9D%BC%EC%B0%A8
